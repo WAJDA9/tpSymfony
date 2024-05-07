@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirm Delete Project{% endblock %}
+
+{% block body %}
+    <h1>Confirm Delete Project</h1>
+    <p>Are you sure you want to delete the project "{{ project.name }}"?</p>
+
+    {# Display the deletion confirmation form #}
+    {{ form_start(form) }}
+        {{ form_row(form.confirm) }}
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_teacher') }}">Cancel</a>
+{% endblock %}

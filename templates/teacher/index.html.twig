@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Projects{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>All Projects</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Is Selected</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                    <tr>
+                        <td>{{ project.name }}</td>
+                        <td>{{ project.content }}</td>
+                        <td>{{ project.isSelected ? 'Yes' : 'No' }}</td>
+                        <td>
+                            <a href="{{ path('app_teacher_modify', {'id': project.id}) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ path('app_teacher_delete', {'id': project.id}) }}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
